@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #e8f199
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+    <title>Tabla</title>
+</head>
+
+<body>
+    <h2>Datos recibidos</h2>
+
+    <p id="result"></p>
+
+    <script>
+        function getParams() {
+            const params = new URLSearchParams(window.location.search)
+            const name = params.get("name")
+            const email = params.get("email")
+            const birthdate = params.get("birthdate")
+            let courses = params.getAll("courses")
+            const studyLevel = params.get("studyLevel")
+            const englishLevel = params.get("englishLevel")
+
+            if (courses.length == 0) { courses = "Ninguno" }
+            
+            return { name, email, birthdate, courses, studyLevel, englishLevel }
+        }
+
+        const data = getParams()
+        const result = document.getElementById("result")
+
+        result.innerHTML = `
+            <table>
+            <tr>
+                <th>Nombre</th>
+                <td>${data.name}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td> ${data.email}</td>
+            </tr>
+            <tr>
+                <th>Fecha de nacimiento</th>
+                <td> ${data.birthdate}</td>
+            </tr>
+            <tr>
+                <th>Cursos completados</th>
+                <td> ${data.courses}</td>
+            </tr>
+            <tr>
+                <th>Nivel de estudios</th>
+                <td> ${data.studyLevel}</td>
+            </tr>
+            <tr>
+                <th>Nivel de inglés</th>
+                <td> ${data.englishLevel}</td>
+            </tr>
+        </table>
+            `
+    </script>
+    <a href="formulario.html">
+        <h2>Volver a formulario</h2>
+</body>
+
+</html>
