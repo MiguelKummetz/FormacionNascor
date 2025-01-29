@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+
+.cta-container {
+    background-color: #000000;
+    text-align: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-image: url("backgroundimage.jpg");
+    background-position: center;
+    height: 50vh;
+    padding: 25vh 0 25vh 0;
+    text-shadow: 3px 3px 6px rgb(185, 185, 185);
+}
+
+.cta-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: white;
+    background-color: #000000;
+}
+.cta-button {
+    background-color: wheat;
+    color: #000000;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 3px 3px 6px rgb(185, 185, 185);;
+}
+
+.cta-button:hover {
+    background-color: burlywood;
+    color: white;
+    box-shadow: rgb(255, 255, 255);
+}
