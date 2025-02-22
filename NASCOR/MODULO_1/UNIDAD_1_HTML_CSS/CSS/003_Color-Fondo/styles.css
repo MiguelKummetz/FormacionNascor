@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Audiowide';
+    font-style: normal;
+    font-weight: 100 400;
+    font-display: swap;
+    src: url('Audiowide/Audiowide-Regular.ttf') format('woff');
+  }
+ 
+body{
+    margin: 0;
+    padding: 0;
+    color:white;
+}
+.cta-container{
+    background-image: url('https://cdn.pixabay.com/photo/2022/10/02/13/07/autumn-7493439_1280.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-family: 'Audiowide';
+    padding: 25vh;
+    height: 100vh;
+    text-shadow: 1px 2px 2px black;
+}
+h2{
+    font-size: 5vh;
+ }
+p{
+    font-size: 3vh;
+    color:greenyellow
+}
+
+
+.cta-button {
+    font-size: 2vh;
+    padding: 0.5em 2em; /* em */
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+ 

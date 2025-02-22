@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chanchito</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #97d8f1
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Reflexió Lingüística</h2>
+    <div id="display">
+        <p>Escull l'ordre de les preguntes:</p>
+        <button onclick="startNormal()">Normal</button>
+        <button onclick="startRandom()">Aleatori</button>
+    </div>
+    <script>
+        const questions = [
+            {
+                id: 1,
+                result: "",
+                question: `
+                <div id="question1">
+                <label>Quina combinació de pronoms febles substitueix adequadament els 
+                sintagmes subratllats en la frase El moderador no volia donar 
+                <u>la paraula a aquell home?</u></label>
+                <br>
+                <input type="radio" id="a" name="question1" value="wrong" required>la’n<br>
+                <input type="radio" id="b" name="question1" value="wrong" required>li’n<br>
+                <input type="radio" id="c" name="question1" value="right" required>la hi<br>
+                <input type="radio" id="d" name="question1" value="wrong" required>la’l<br>
+                <button onclick="checkAnswer()">Acceptar</button>
+                </div>`,
+                answer: `
+                <div id="answer1">
+                <label>Quina combinació de pronoms febles substitueix adequadament els 
+                sintagmes subratllats en la frase El moderador no volia donar 
+                <u>la paraula a aquell home?</u></label>
+                <ul>
+                <li>la’n ❌</li>
+                <li>li’n ❌</li>
+                <li>la hi ✅</li>
+                <li>la’l ❌</li>
+                </ul>
+                <button onclick="checkAnswer()">Següent pregunta</button>
+                </div>`,
+            },
+            {
+                id: 2,
+                result: "",
+                question: `
+                <div id="question2">
+                <label>El verb <i>faltar</i>, que apareix en la frase 
+                <i>Avui falten tres persones</i>, és un verb:</label>
+                <br>
+                <input type="radio" id="a" name="question1" value="wrong" required>transitiu<br>
+                <input type="radio" id="b" name="question1" value="right" required>inacusatiu<br>
+                <input type="radio" id="c" name="question1" value="wrong" required>copulatiu<br>
+                <input type="radio" id="d" name="question1" value="wrong" required>auxiliar<br>
+                <button onclick="checkAnswer()">Acceptar</button>
+                </div>`,
+                answer: `
+                <div id="answer2">
+                <label>El verb <i>faltar</i>, que apareix en la frase 
+                <i>Avui falten tres persones</i>, és un verb:</label>
+                <ul>
+                <li>transitiu ❌</li>
+                <li>inacusatiu ✅</li>
+                <li>copulatiu ❌</li>
+                <li>auxiliar ❌</li>
+                </ul>
+                <button onclick="checkAnswer()">Següent pregunta</button>
+                </div>`,
+
+            },
+            {
+                id: 3,
+            },
+            {
+                id: 4,
+            }
+        ]
+        
+        randomGenerator = () => {
+            const randomQuestions = [...questions].sort(() => Math.random() - 0.5);
+            return randomQuestions
+        }
+
+        checkAnswer = (n) => {
+
+            const answer = document.querySelector(`input[name="question${n}"]:checked`)
+            alert('se ha llamado a la función checkAnswer()' + answer.value)
+
+            if (answer.value === "right") {
+                alert('Correcte :D')
+            } else {
+                alert('Incorrecte D:')
+            }
+            
+        }
+        showQuestion = (n) => {
+            alert('se ha llamado a la función showQuestion()')
+
+            const result = document.getElementById("display")
+
+            result.innerHTML = questions[n].question
+        }
+        showAnswer = (n) => {
+
+            const result = document.getElementById("display")
+
+            result.innerHTML = questions[n].answer
+        }
+
+        startNormal = () => {
+
+            for( i = 0; i < questions.length; i++){
+                showQuestion(i)
+                checkAnswer(i)
+                showAnswer(i)
+            }
+        }
+    </script>
+</body>
+
+</html>

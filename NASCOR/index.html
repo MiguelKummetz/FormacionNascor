@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chanchito</title>
+    <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #4a90e2;
+  }
+
+  #question {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  #message {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  #answerText {
+    font-size: 16px;
+    margin-top: 20px;
+    /* color: #007b5e; */
+  }
+
+  /* Estilización del botón */
+  #continue {
+    position: fixed; /* Fija el botón en su posición */
+    bottom: 20px; /* Se coloca a 20px del borde inferior */
+    right: 20px; /* Se coloca a 20px del borde derecho */
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  /* Hover del botón para una mejor interacción */
+  #continue:hover {
+    background-color: #357ab8;
+  }
+
+  /* Ajuste para pantallas pequeñas */
+  @media (max-width: 600px) {
+    #continue {
+      width: calc(100% - 40px); /* Botón que ocupa casi toda la pantalla */
+      bottom: 10px;
+      right: 10px;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+    <h2>Reflexió Lingüística</h2>
+    <div id="display">
+        <p id="question"></p>
+        <input type="text" id="userAnswer" placeholder="escriu aqui la resposta" />
+        <p id="message" style="font-weight: bold;"></p>
+        <p id="answerText"></p>
+        <button id="continue" onclick="nextStep()">Següent</button>
+    </div>
+    <script>
+        const questions = [
+            {
+                id: 1,
+                question: `Quina combinació de pronoms febles substitueix adequadament els 
+                sintagmes subratllats en la frase El moderador no volia donar 
+                <u>la paraula a aquell home?</u>
+                <br>
+                <ol type="a">
+                <li>la’n</li>
+                <li>li’n</li>
+                <li>la hi</li>
+                <li>la’l</li>
+                </ol>
+                `,
+                answer: `c`,
+                answerText: `
+                <ul>
+                <li>la’n ❌</li>
+                <li>li’n ❌</li>
+                <li>la hi ✅</li>
+                <li>la’l ❌</li>
+                </ul>
+                `,
+            },
+            {
+                id: 2,
+                question: `
+                El verb <i>faltar</i>, que apareix en la frase 
+                <i>Avui falten tres persones</i>, és un verb:
+                <br>
+                <ol type="a">
+                <li>transitiu</li>
+                <li>inacusatiu</li>
+                <li>copulatiu</li>
+                <li>auxiliar</li>
+                </ol>
+                `,
+                answer: `b`,
+                answerText: `
+                <ul>
+                <li>transitiu ❌</li>
+                <li>inacusatiu ✅</li>
+                <li>copulatiu ❌</li>
+                <li>auxiliar ❌</li>
+                </ul>
+                `,
+            }
+        ];
+
+        let questionIndex = 0;
+        let stepIndex = 0;
+
+        showQuestion = () => {
+            const dQuestion = document.getElementById("question")
+            dQuestion.innerHTML = questions[questionIndex].question
+            document.getElementById("userAnswer").value = "";
+            document.getElementById("answerText").textContent = "";
+            document.getElementById("message").textContent = "";
+        };
+
+        nextStep = () => {
+            console.log("questionIndex =>", questionIndex)
+            console.log("stepIndex =>", stepIndex)
+
+            if (questionIndex >= questions.length) {
+                finalDisplay = document.getElementById("display")
+                finalDisplay.innerHTML = `<b>TERMINÓ</b> <br> en total acertaste ${"s"} preguntas y fallaste ${"s"}`;
+            }
+
+            if (stepIndex === 0) {
+                showQuestion();
+                stepIndex = 1;
+            } else if (stepIndex === 1) {
+                const userAnswer = document.getElementById("userAnswer").value.trim(); //<= elimina espacions en blanco
+                if (
+                    userAnswer.toLowerCase() ===
+                    questions[questionIndex].answer.toLowerCase()
+                ) {
+                    document.getElementById("message").textContent = "Correcte :D";
+                } else {
+                    document.getElementById("message").textContent = "Incorrecte D:";
+                }
+                stepIndex = 2;
+            } else if (stepIndex === 2) {
+                dAnswerText = document.getElementById("answerText")
+                dAnswerText.innerHTML = questions[questionIndex].answerText;
+                stepIndex = 0;
+                questionIndex++;
+
+            }
+        }
+        // window.onload = showQuestion
+    </script>
+</body>
+
+</html>

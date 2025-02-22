@@ -4,7 +4,6 @@ body {
     color: #fff;
 }
 
-
 .cta-container {
     background-color: #000000;
     text-align: center;
@@ -23,6 +22,7 @@ body {
     color: white;
     background-color: #000000;
 }
+
 .cta-button {
     background-color: wheat;
     color: #000000;

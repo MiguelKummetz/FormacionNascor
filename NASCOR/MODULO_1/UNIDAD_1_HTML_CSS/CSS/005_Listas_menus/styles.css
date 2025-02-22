@@ -1,0 +1,85 @@
+/*Añade aquí la fuente "Lato" de Google Fonts con @import*/
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Handlee&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zen+Dots&display=swap');
+* {
+    /*establece la fuente Lato para todos los elementos*/
+    font-family: 'Lato';
+}
+
+nav ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+    /*Asegúrate de que tenga un margen y un relleno de 0 y que su lista de estilos sea none*/
+}
+
+/*Selector los enlaces */
+a
+    {
+    width: 100px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 10px 5px;
+    border-right: 1px solid #336699;
+    display: block;
+}
+
+/*Selector. los elementos de menu superior, en horizontal */
+ul li {
+    float: left;
+}
+
+nav ul a:hover {
+    background-color: #336699;
+}
+
+li:last-child a {
+    /*ocultar borde derecho*/
+    border-right: none;
+}
+
+ul.menu {
+    width: 140px;
+    list-style-type: none;
+    border: 1px solid #FFC83D;
+    margin:0;
+    padding:0
+    /* Borde de 1px con el color #FFC83D*/
+    /* sin margen ni relleno */
+}
+
+ul.menu li {
+    border: 1px solid #FFC83D;
+    width: 100%;
+    background-color: #E5F3FE;
+}
+
+ul.menu li:first-child{
+    border-top: none;
+}
+
+/* selector los enlaces del menu vertical*/
+
+  .menu a {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    padding: 5px;
+    color:#333;
+    background-color: #E5F3FE;
+    border-right: none;
+    /*centrar el texto, no mostrar subrayado 
+    y tener un color de texto de #333. Además, 
+    debe tener un relleno de 5px y un fondo 
+    de color #E5F3FE.*/
+}
+
+ul.menu li:hover, ul.menu li a:hover {
+    /*fondo color #c8e2f7*/
+    background-color:#c8e2f7 ;
+}
+
+.menu>li a::before {
+    content: "👉 ";
+}

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        header{
+            width:100%;
+            height:20vh;
+            background-color: darkseagreen;
+        }
+        footer{
+            width:100%;
+            height:20vh;
+            background-color: darkseagreen;
+        }
+        nav{
+            width:100%;
+            height:10vh;
+            background-color: rgb(143, 152, 188);
+            padding-top: 3vh;
+        }
+        main{
+            width: 100vw;
+        }
+        section{
+            width: 70vw;
+            background-color: antiquewhite;
+            float:left;
+            min-height: 80vh;
+            padding: 5vh
+        }
+        aside{
+            width: 30vw;
+            background-color: rgb(154, 233, 183);
+            min-height: 80vh;
+            float: left;
+        }
+        @media (max-width: 768px) {
+            section{
+                width: 100vw;
+            }
+            aside{
+                width: 100vw;
+            }
+         }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img id="logo" src="img/logo.png">
+        <h1>Inicio</h1>
+    </header>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Contacto</a>
+    </nav>
+    <main>
+        <section>
+            <h2>
+                Bienvenio! 
+            </h2>
+                Navega por nuestrta web<br>
+            <img src="img/bienvenida.gif">
+        </section>
+        <aside>
+            <img src="img/facebook.png">
+            <img src="img/twitter.png">
+            <img src="img/whatsapp.png">
+        </aside>
+    </main>
+    <div style="clear: both;"></div>
+    <footer>
+        &copy; 2024 - Curso Nascor
+    </footer>
+</body>
+</html>
